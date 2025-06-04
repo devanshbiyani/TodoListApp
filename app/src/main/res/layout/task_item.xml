@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/task_item_background"
+    android:padding="16dp"
+    android:gravity="center_vertical"
+    android:layout_marginBottom="4dp">
+
+    <!-- Task Icon -->
+    <TextView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:text="✓"
+        android:textSize="18sp"
+        android:textColor="@color/teal_700"
+        android:gravity="center"
+        android:background="@drawable/task_icon_background"
+        android:layout_marginEnd="16dp" />
+
+    <!-- Task Text -->
+    <TextView
+        android:id="@+id/taskText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Sample Task"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:textStyle="normal"
+        android:maxLines="2"
+        android:ellipsize="end" />
+
+    <!-- Delete Icon -->
+    <TextView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:text="🗑️"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:alpha="0.6" />
+
+</LinearLayout>
