@@ -29,18 +29,14 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         // Initialize UI components
         initializeViews()
-
 
         // Setup ListView
         setupListView()
 
-
         // Setup button click listener
         setupAddButton()
-
 
         // Update UI
         updateUI()
@@ -58,20 +54,16 @@ class MainActivity : Activity() {
         // Initialize task list
         taskList = ArrayList()
 
-
         // Create custom adapter
         adapter = TaskAdapter()
-
 
         // Set adapter to ListView
         taskListView!!.adapter = adapter
 
-
         // Add long click listener to delete tasks
         taskListView!!.onItemLongClickListener =
             OnItemLongClickListener { parent: AdapterView<*>?, view: View?, position: Int, id: Long ->
-                val deletedTask =
-                    taskList!![position]
+                val deletedTask = taskList!![position]
                 taskList!!.removeAt(position)
                 adapter!!.notifyDataSetChanged()
                 updateUI()
@@ -83,7 +75,6 @@ class MainActivity : Activity() {
 
     private fun setupAddButton() {
         addButton!!.setOnClickListener { addTask() }
-
 
         // Also add task when Enter is pressed
         taskInput!!.setOnEditorActionListener { v: TextView?, actionId: Int, event: KeyEvent? ->
@@ -100,22 +91,17 @@ class MainActivity : Activity() {
             return
         }
 
-
         // Add task to list
         taskList!!.add(task)
-
 
         // Notify adapter of data change
         adapter!!.notifyDataSetChanged()
 
-
-        // Clear input field
-        taskInput!!.setText(getString(R.string.set_text_placeholder))
-
+        // Clear input field - THIS IS THE FIX
+        taskInput!!.text.clear()
 
         // Update UI
         updateUI()
-
 
         // Show confirmation with animation
         Toast.makeText(this, "✓ Task added successfully!", Toast.LENGTH_SHORT).show()
@@ -150,14 +136,14 @@ class MainActivity : Activity() {
             return position.toLong()
         }
 
-        override fun getView(position: Int, convertView: View, parent: ViewGroup): View {
+        override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
             var view = convertView
             if (view == null) {
                 val inflater = LayoutInflater.from(this@MainActivity)
                 view = inflater.inflate(R.layout.task_item, parent, false)
             }
 
-            val taskText = view.findViewById<TextView>(R.id.taskText)
+            val taskText = view!!.findViewById<TextView>(R.id.taskText)
             taskText.text = taskList!![position]
 
             return view
