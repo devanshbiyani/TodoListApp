@@ -48,6 +48,8 @@ class MainActivity : AppCompatActivity() {
         taskListView.setOnItemClickListener { _, _, position, _ ->
             taskList.removeAt(position)  // Remove clicked task
             adapter.notifyDataSetChanged() // Refresh the list
+
+
         }
     }
 }

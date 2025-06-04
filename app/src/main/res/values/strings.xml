@@ -1,6 +1,5 @@
 <resources>
-    <string name="ap_name">TodoListApp</string>
+    <string name="app_name">TodoListApp</string>
     <string name="add_task">Add Task</string>
     <string name="enter_new_task">Enter new task</string>
-    <string name="app_name">TodoListApp</string>
 </resources>
