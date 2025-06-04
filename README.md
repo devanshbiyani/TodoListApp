@@ -114,4 +114,3 @@ Customize app text in `res/values/strings.xml` for different languages or messag
 **Happy Task Managing!** 🎉
 
 *Built with ❤️ using Kotlin and Android Studio*
-```
